@@ -1,0 +1,131 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# Tippers - Record Activity - no Bearer
+Record Activity without bearer token
+
+# Group Revision History
+
+<table>
+   <tr>
+        <td>Dec 16 2019</td>
+        <td>1.0.0 </td>
+        <td>Mariyani Pardede</td>
+        <td>API Mockup for record activity without using bearer token</td>
+    </tr>
+</table>
+
+
+## Save Log Activity Record [/partner-activity-log-service/api/v2/saveLog]
+
+### Save Log Activity Without Bearer Token [POST]
+
++ Request (application/json)
+    + Attributes (RequestActivity)
+
++ Response 201 (application/json)
+
+        Created
+        
+    + Attributes(ResponseCommon)
+
++ Response 400 (text/plain)
+
+    + Attributes (object)       
+        + errors (array[Error400], fixed-type, required)
+        
++ Response 404 (text/plain)
+
+    + Attributes (object)       
+        + errors (array[Error404], fixed-type, required)
+
++ Response 405 (text/plain)
+
+    + Attributes (object)       
+        + errors (array[Error405], fixed-type, required)
+
++ Response 500 (text/plain)
+
+    + Attributes (object)       
+        + errors (array[Error500], fixed-type, required)
+
++ Response 501 (text/plain)
+
+    + Attributes (object)       
+        + errors (array[Error501], fixed-type, required)
+
++ Response 503 (text/plain)
++ Attributes (object)       
+        + errors (array[Error503], fixed-type, required)  
+
+# Data Structure
+
+## RequestActivity (object) - Activity request 
+### Properties
++ `value` : `3275062602950004, 0832132132132` (string, required)
++ `activityId` : `TIPPERS_VALIDATE_KTP_PHONENUMBER_FAILED` (string, required)
++ `partnerUser` : (log)
+
+## log (object) - Activity request 
+### Properties
++ `id` : `081234567888` (string, required)
+
+## ResponseCommon (object) - Response Save Tippers 
+### Properties
++ `auth`: (string,nullable)
++ `token`: (string,nullable)
++ `timestamp`: 1571817386516(number)
++ `code`:00(string, required)
++ `object` (string,nullable)
++ `description`:SUCCESS(string,required)
++ `severity`: (string,nullable)
++ `message`:(string,nullable)
+
+## Error400 (object)
+### Properties
++ `code`: 400
++ `message` : `Invalid ID supplied` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error401 (object)
+### Properties
++ `code`: 401
++ `message` : ` ` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error404 (object)
+### Properties
++ `code`: 404
++ `message` : `Record not found` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error405 (object)
+### Properties
++ `code`: 405
++ `message` : `Validation exception` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error426 (object)
+### Properties
++ `code`: 426
++ `message` : `Upgrade Required` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error500 (object)
+### Properties
++ `code`: 500
++ `message` : `Internal Server Error` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error501 (object)
+### Properties
++ `code`: 501
++ `message` : `Not Implemented` (string, required)
++ `severity` : `ERROR` (string, required)
+
+## Error503 (object)
+### Properties
++ `code`: 503
++ `message` : `Internal Connection Error` (string, required)
++ `severity` : `ERROR` (string, required)
+
